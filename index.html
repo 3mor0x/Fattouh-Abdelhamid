@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Light Mode - الفخامة الهادئة */
         :root {
             --bg-color: #f5f5f7;
             --surface-color: #ffffff;
@@ -23,7 +22,6 @@
             --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Dark Mode - المودرن دارك */
         [data-theme="dark"] {
             --bg-color: #050505;
             --surface-color: #121212;
@@ -45,7 +43,6 @@
             overflow-x: hidden;
         }
 
-        /* Floating Navbar */
         nav {
             position: fixed; top: 15px; left: 50%; transform: translateX(-50%);
             width: 92%; max-width: 1200px;
@@ -55,174 +52,134 @@
             box-shadow: var(--shadow); z-index: 1000;
             backdrop-filter: blur(20px); background: rgba(var(--surface-color), 0.85);
         }
-        .nav-logo { font-weight: 900; font-size: clamp(1rem, 3vw, 1.3rem); color: var(--text-main); }
+        .nav-logo { font-weight: 900; font-size: clamp(0.9rem, 3vw, 1.2rem); color: var(--text-main); }
         .nav-logo span { color: var(--accent); }
         
         .nav-controls { display: flex; align-items: center; gap: 10px; }
         .theme-toggle {
             background: var(--bg-color); border: 1px solid var(--border-color);
-            color: var(--text-main); width: 42px; height: 42px; border-radius: 50%;
+            color: var(--text-main); width: 40px; height: 40px; border-radius: 50%;
             cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center;
         }
-        .theme-toggle:hover, .theme-toggle:active { 
-            color: var(--accent); border-color: var(--accent); 
-            box-shadow: 0 0 15px var(--accent-glow); transform: rotate(30deg); 
-        }
+        .theme-toggle:hover { color: var(--accent); border-color: var(--accent); transform: rotate(15deg); }
 
-        .btn-action.primary {
-            background: var(--text-main); color: var(--bg-color); 
-            padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700;
-            transition: var(--transition); border: 2px solid transparent; display: inline-block;
+        .btn-top {
+            background: #25d366; color: white; 
+            padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: 700;
+            transition: var(--transition); font-size: 0.85rem; display: flex; align-items: center; gap: 6px;
         }
-        .btn-action.primary:hover, .btn-action.primary:active {
-            background: var(--accent); color: white; border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-3px);
-        }
+        .btn-top:hover { background: #1da851; transform: scale(1.05); }
 
-        /* Hero Section */
         .hero {
-            padding: 130px 5% 50px; max-width: 1300px; margin: 0 auto;
+            padding: 140px 5% 50px; max-width: 1300px; margin: 0 auto;
             display: flex; align-items: center; justify-content: space-between; gap: 40px;
         }
-        .hero-text { flex: 1; }
+        .hero-text { flex: 1.2; }
         .hero-badge {
-            display: inline-block; padding: 8px 20px; border-radius: 50px;
+            display: inline-block; padding: 6px 18px; border-radius: 50px;
             background: var(--surface-color); border: 1px solid var(--border-color);
-            color: var(--text-muted); font-weight: 600; font-size: 0.9rem; margin-bottom: 20px;
+            color: var(--text-muted); font-weight: 600; font-size: 0.85rem; margin-bottom: 15px;
         }
-        .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; line-height: 1.2; margin: 0 0 15px; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.2; margin: 0; }
         .hero h1 span { color: var(--accent); }
-        .hero p { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--text-muted); line-height: 1.8; }
+        .hero h2 { font-size: clamp(1.1rem, 3vw, 1.6rem); color: var(--text-muted); margin: 15px 0; font-weight: 600; }
         
-        .hero-img-wrap { flex: 0.8; display: flex; justify-content: flex-end; }
-        .hero-img {
-            width: 100%; max-width: 420px; height: auto; aspect-ratio: 4/5; object-fit: cover;
-            border-radius: var(--radius-lg); box-shadow: var(--shadow);
-            border: 2px solid var(--border-color); transition: var(--transition); cursor: pointer;
+        /* Contact Buttons in Hero */
+        .hero-contact {
+            margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;
         }
-        .hero-img:hover, .hero-img:active { 
-            transform: translateY(-15px) scale(1.02); 
-            border-color: var(--accent); box-shadow: 0 15px 40px var(--accent-glow); 
+        .btn-social {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 12px 25px; border-radius: 50px; font-weight: 700; font-size: 1.05rem;
+            text-decoration: none; transition: var(--transition);
+            background: var(--surface-color); color: var(--text-main);
+            border: 1px solid var(--border-color); box-shadow: var(--shadow);
         }
+        .btn-social:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .btn-social i { font-size: 1.3rem; }
+        .btn-call { background: var(--text-main); color: var(--bg-color); border: none; }
+        .btn-call:hover { background: var(--accent); color: white; }
 
-        /* Bento Grid with Magic Hover */
+        .hero-img-wrap { flex: 0.8; display: flex; justify-content: center; }
+        .hero-img {
+            width: 100%; max-width: 400px; height: auto; aspect-ratio: 4/5; object-fit: cover;
+            border-radius: var(--radius-lg); box-shadow: var(--shadow);
+            border: 2px solid var(--border-color); transition: var(--transition);
+        }
+        .hero-img:hover { transform: translateY(-10px) rotate(2deg); border-color: var(--accent); }
+
+        /* Bento Grid */
         .bento-section { padding: 40px 5%; max-width: 1300px; margin: 0 auto; }
-        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .bento-card {
             background: var(--surface-color); border-radius: var(--radius-lg);
-            padding: 40px; border: 2px solid var(--border-color);
+            padding: 35px; border: 1px solid var(--border-color);
             box-shadow: var(--shadow); transition: var(--transition);
-            display: flex; flex-direction: column; justify-content: center; cursor: pointer;
-            position: relative; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: center;
         }
-        /* Magic Glow Hover */
-        .bento-card:hover, .bento-card:active { 
-            transform: translateY(-10px) scale(1.02); 
-            border-color: var(--accent); box-shadow: 0 20px 40px var(--accent-glow); 
-            z-index: 2;
-        }
-        .bento-card.full { grid-column: span 3; flex-direction: row; align-items: center; gap: 30px; }
+        .bento-card:hover { transform: scale(1.02); border-color: var(--accent); box-shadow: 0 10px 30px var(--accent-glow); }
+        .bento-card.wide { grid-column: span 2; flex-direction: row; align-items: center; gap: 30px; }
         
         .icon-wrap {
-            background: var(--bg-color); padding: 20px; border-radius: 20px; 
+            background: var(--bg-color); padding: 18px; border-radius: 18px; 
             display: inline-flex; align-items: center; justify-content: center;
-            margin-bottom: 20px; width: fit-content; transition: var(--transition);
-            border: 1px solid var(--border-color);
+            margin-bottom: 15px; transition: var(--transition);
         }
-        .bento-card i { font-size: 2.5rem; color: var(--accent); transition: var(--transition); }
-        .bento-card.full i { font-size: 3.5rem; margin-bottom: 0; }
-        
-        /* Icon Animation on Card Hover */
-        .bento-card:hover .icon-wrap, .bento-card:active .icon-wrap {
-            background: var(--accent); border-color: var(--accent);
-            box-shadow: 0 0 25px var(--accent-glow); transform: scale(1.1) rotate(10deg);
-        }
-        .bento-card:hover i, .bento-card:active i { color: #fff; }
+        .bento-card i { font-size: 2.2rem; color: var(--accent); }
+        .bento-card:hover .icon-wrap { background: var(--accent); }
+        .bento-card:hover i { color: #fff; }
 
-        .bento-card h3 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin: 0 0 15px; font-weight: 900; }
-        .bento-card p { color: var(--text-muted); font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.7; margin: 0; }
+        .bento-card h3 { font-size: 1.5rem; margin: 0 0 12px; font-weight: 800; }
+        .bento-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0; }
 
-        /* Sleek Gallery - Cinematic Frame */
+        /* Gallery */
         .gallery-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;
             padding: 20px 5% 80px; max-width: 1300px; margin: 0 auto;
         }
         .gallery-item-wrap {
-            border-radius: var(--radius-md); width: 100%; height: 380px;
-            overflow: hidden; border: 2px solid var(--border-color);
-            transition: var(--transition); 
-            /* Cinematic Background for contained images */
-            background: linear-gradient(135deg, rgba(156,124,93,0.1), rgba(0,0,0,0.05));
-            display: flex; align-items: center; justify-content: center;
-            cursor: crosshair; position: relative;
+            border-radius: var(--radius-md); height: 350px; overflow: hidden;
+            border: 1px solid var(--border-color); display: flex; align-items: center; 
+            justify-content: center; background: rgba(0,0,0,0.02); transition: var(--transition);
         }
-        [data-theme="dark"] .gallery-item-wrap { background: linear-gradient(135deg, rgba(210,180,140,0.1), rgba(255,255,255,0.02)); }
+        .gal-item { max-width: 100%; max-height: 100%; object-fit: contain; padding: 10px; transition: var(--transition); }
+        .gallery-item-wrap:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 25px var(--accent-glow); }
 
-        .gal-item {
-            width: 100%; height: 100%;
-            object-fit: contain; /* يُظهر الصورة كاملة بالملي */
-            padding: 10px; /* مسافة أمان حول الصورة */
+        /* Dedication */
+        .dedication {
+            background: var(--surface-color); padding: 80px 5%; border-top: 1px solid var(--border-color);
+        }
+        .dedication-content { max-width: 850px; margin: 0 auto; text-align: center; }
+        .quote { font-size: clamp(1.2rem, 3.5vw, 1.8rem); line-height: 1.8; font-weight: 600; margin-bottom: 40px; }
+        
+        .signature-wrap { display: flex; align-items: center; justify-content: center; gap: 20px; }
+        .eng-signature {
+            width: 140px; height: 140px; border-radius: 25px; 
+            object-fit: cover; border: 2px solid var(--border-color);
             transition: var(--transition);
         }
-        .gallery-item-wrap:hover, .gallery-item-wrap:active { 
-            border-color: var(--accent); box-shadow: 0 15px 40px var(--accent-glow); 
-            transform: scale(1.03) translateY(-5px); z-index: 5;
-        }
-        .gallery-item-wrap:hover .gal-item { transform: scale(1.05); }
+        .eng-signature:hover { transform: scale(1.05) rotate(-3deg); border-color: var(--accent); }
+        .sig-text { text-align: right; }
+        .sig-text h4 { margin: 0; font-size: 1.3rem; font-weight: 800; }
+        .sig-text span { color: var(--accent); font-size: 0.95rem; font-weight: 600; }
 
-        /* Modern Dedication */
-        .dedication {
-            background: var(--surface-color); padding: 80px 5%; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
-        }
-        .dedication-content { max-width: 900px; margin: 0 auto; text-align: center; }
-        .quote { font-size: clamp(1.2rem, 4vw, 1.8rem); line-height: 1.8; font-weight: 600; color: var(--text-main); margin-bottom: 40px; }
-        
-        .signature-wrap { display: flex; align-items: center; justify-content: center; gap: 25px; flex-wrap: wrap; }
-        .eng-signature {
-            width: 160px; height: 160px; /* صورة أكبر وأوضح */
-            border-radius: 30px; /* حواف مربعة ناعمة لمظهر بروفيشنال */
-            object-fit: cover; border: 4px solid var(--border-color);
-            box-shadow: var(--shadow); transition: var(--transition); cursor: pointer;
-        }
-        .eng-signature:hover, .eng-signature:active {
-            border-color: var(--accent); transform: scale(1.1) rotate(-3deg);
-            box-shadow: 0 15px 30px var(--accent-glow);
-        }
-        .signature-text { text-align: right; }
-        .signature-text h4 { margin: 0; font-size: 1.5rem; font-weight: 900; }
-        .signature-text span { color: var(--accent); font-size: 1rem; font-weight: 600; }
-
-        /* Marketing */
-        .marketing { background: var(--bg-color); padding: 80px 20px; text-align: center; }
-        .marketing h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 15px; }
+        /* Marketing Section */
+        .marketing { background: var(--bg-color); padding: 70px 20px; text-align: center; border-top: 1px solid var(--border-color); }
         .btn-hire {
-            background: #25d366; color: white; padding: 15px 40px; border-radius: 50px;
+            background: #25d366; color: white; padding: 14px 35px; border-radius: 50px;
             text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px;
-            transition: var(--transition); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); border: 2px solid transparent;
+            transition: var(--transition); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
         }
-        .btn-hire:hover, .btn-hire:active { transform: scale(1.05) translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); border-color: #fff; }
+        .btn-hire:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); }
 
-        /* ======= RESPONSIVE MAGIC (الفيت المظبوط) ======= */
-        
-        /* التابلت (Tablet) */
-        @media (max-width: 1024px) {
-            .hero { flex-direction: column; text-align: center; gap: 30px; }
-            .hero-img-wrap { justify-content: center; width: 100%; }
-            .hero-img { max-width: 350px; }
-            .contact-wrap { justify-content: center !important; }
-            .bento-grid { grid-template-columns: repeat(2, 1fr); }
-            .bento-card.full { grid-column: span 2; flex-direction: column; text-align: center; gap: 15px; }
-        }
-
-        /* الموبايل (Mobile) */
-        @media (max-width: 768px) {
-            nav { width: 95%; padding: 10px 20px; }
-            .hero { padding-top: 110px; }
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 110px; }
+            .hero-img { max-width: 320px; }
+            .hero-contact { justify-content: center; }
             .bento-grid { grid-template-columns: 1fr; }
-            .bento-card.full { grid-column: span 1; }
-            .signature-wrap { flex-direction: column; text-align: center; }
-            .signature-text { text-align: center; }
-            .gallery-item-wrap { height: 320px; } /* تصغير الطول للموبايل */
+            .bento-card.wide { grid-column: span 1; flex-direction: column; text-align: center; }
+            .signature-wrap { flex-direction: column; }
+            .sig-text { text-align: center; }
         }
     </style>
 </head>
@@ -232,18 +189,27 @@
         <div class="nav-logo">البشمهندس <span>فتوح عبدالحميد</span></div>
         <div class="nav-controls">
             <button class="theme-toggle" id="theme-btn"><i class="fa-solid fa-moon"></i></button>
-            <a href="https://wa.me/201067107600" class="btn-action primary">تواصل</a>
+            <a href="https://wa.me/201067107600" class="btn-top"><i class="fa-brands fa-whatsapp"></i> تواصل</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-text">
-            <div class="hero-badge">بكالوريوس الهندسة - جامعة سوهاج</div>
-            <h1>خبير الإنشاءات <span>المعمارية</span> والمدنية.</h1>
-            <p>مسيرة طويلة من العطاء الهندسي والمجتمعي. مستشار مالي بالجمعية المصرية الدولية للتنمية والارتقاء بديروط، ورائد في قطاع التعليم الفني الصناعي.</p>
-            <div class="contact-wrap" style="padding: 20px 0 0 0; justify-content: flex-start; display: flex; gap: 15px;">
-                <a href="tel:01207118119" class="btn-action primary" style="background: transparent; border-color: var(--text-main); color: var(--text-main);"><i class="fa-solid fa-phone"></i> 01207118119</a>
-                <a href="https://www.facebook.com/share/1Cht3J4gmN/" target="_blank" class="btn-action primary" style="background: #1877f2; border: none; color: white;"><i class="fa-brands fa-facebook"></i> فيسبوك</a>
+            <div class="hero-badge">عضو نقابة التحكيم الدولي</div>
+            <h1>خبير الإنشاءات <span>المعمارية</span> والتحكيم الدولي.</h1>
+            <h2>مستشار تحكيم دولي وقاضي عرفي بنقابة التحكيم الدولى</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7;">بكالوريوس الهندسة - جامعة سوهاج. قامة تجمع بين الريادة الهندسية في التعليم الفني وبين الحكمة القضائية والخبرة المالية في خدمة المجتمع بديروط.</p>
+            
+            <div class="hero-contact">
+                <a href="tel:01207118119" class="btn-social btn-call">
+                    <i class="fa-solid fa-phone-volume"></i> 01207118119
+                </a>
+                <a href="https://wa.me/201067107600" target="_blank" class="btn-social">
+                    <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> واتساب
+                </a>
+                <a href="https://www.facebook.com/share/1Cht3J4gmN/" target="_blank" class="btn-social">
+                    <i class="fa-brands fa-facebook" style="color: #1877F2;"></i> فيسبوك
+                </a>
             </div>
         </div>
         <div class="hero-img-wrap">
@@ -253,46 +219,40 @@
 
     <section class="bento-section">
         <div class="bento-grid">
-            <div class="bento-card full">
-                <div class="icon-wrap"><i class="fa-solid fa-compass-drafting"></i></div>
+            <div class="bento-card wide">
+                <div class="icon-wrap"><i class="fa-solid fa-gavel"></i></div>
                 <div>
-                    <h3>الريادة الهندسية والتعليم</h3>
-                    <p>خبرة واسعة في الإنشاءات المعمارية والمدنية، سخرها للارتقاء بقطاع التعليم الفني الصناعي، مساهماً في تخريج وتطوير أجيال من الكوادر الفنية المحترفة.</p>
+                    <h3>مستشار التحكيم والقضاء العرفي</h3>
+                    <p>قاضي عرفي ومستشار معتمد بنقابة التحكيم الدولي، يساهم بحكمته في حل النزاعات وإرساء قواعد العدل والصلح في المجتمع.</p>
                 </div>
             </div>
             <div class="bento-card">
-                <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
-                <h3>الإدارة المالية</h3>
-                <p>مستشار مالي خبير يدمج بين حنكة المهندس ودقة الإدارة في الجمعية المصرية للتنمية.</p>
+                <div class="icon-wrap"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3>الريادة الهندسية</h3>
+                <p>خبير في الإنشاءات المعمارية والمدنية، كرس مسيرته لتطوير التعليم الفني وتخريج كوادر فنية متميزة.</p>
             </div>
             <div class="bento-card">
-                <div class="icon-wrap"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                <h3>الأثر المجتمعي</h3>
-                <p>أيادٍ بيضاء في العمل الخيري ومساعدة المحتاجين، إيماناً بأن العلم يجب أن يخدم الناس.</p>
+                <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>الاستشارات المالية</h3>
+                <p>مستشار مالي بالجمعية المصرية الدولية للتنمية، يدمج بين الفكر الهندسي والخبرة الإدارية.</p>
             </div>
         </div>
     </section>
 
-    <section style="text-align: center; padding-top: 60px;">
-        <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 900; color: var(--text-main);">محطات من المسيرة</h2>
-    </section>
-    
     <div class="gallery-grid">
-        <div class="gallery-item-wrap"><img src="gallery1.jpg" class="gal-item" alt="صورة 1"></div>
-        <div class="gallery-item-wrap"><img src="gallery2.jpg" class="gal-item" alt="صورة 2"></div>
-        <div class="gallery-item-wrap"><img src="gallery3.jpg" class="gal-item" alt="صورة 3"></div>
-        <div class="gallery-item-wrap"><img src="gallery4.jpg" class="gal-item" alt="صورة 4"></div>
-        <div class="gallery-item-wrap"><img src="gallery5.jpg" class="gal-item" alt="صورة 5"></div>
+        <div class="gallery-item-wrap"><img src="gallery1.jpg" class="gal-item"></div>
+        <div class="gallery-item-wrap"><img src="gallery2.jpg" class="gal-item"></div>
+        <div class="gallery-item-wrap"><img src="gallery3.jpg" class="gal-item"></div>
+        <div class="gallery-item-wrap"><img src="gallery4.jpg" class="gal-item"></div>
+        <div class="gallery-item-wrap"><img src="gallery5.jpg" class="gal-item"></div>
     </div>
 
     <section class="dedication">
         <div class="dedication-content">
-            <div class="quote">
-                "إلى الجبل الذي أستند إليه، والقدوة التي أنير بها دربي.. لقد كنت دوماً مدرسة في العطاء، علمتني أن قيمة الإنسان في أثره الذي يتركه في قلوب الناس."
-            </div>
+            <div class="quote">"إلى الجبل الذي أستند إليه، والقدوة التي أنير بها دربي.. لقد كنت دوماً مدرسة في العطاء، علمتني أن قيمة الإنسان في أثره الذي يتركه في قلوب الناس."</div>
             <div class="signature-wrap">
-                <img src="eng-amr.jpg" class="eng-signature" alt="عمرو عثمان">
-                <div class="signature-text">
+                <img src="eng-amr.jpg" class="eng-signature">
+                <div class="sig-text">
                     <h4>المهندس عمرو عثمان</h4>
                     <span>ابنك البار - مصمم ومطور الواجهة</span>
                 </div>
@@ -301,33 +261,21 @@
     </section>
 
     <section class="marketing">
-        <h2>حوّل خبرتك إلى واجهة رقمية عالمية</h2>
-        <p>نصمم لأصحاب النخبة والمهن الرفيعة واجهات رقمية تعكس تاريخهم بأحدث تقنيات الويب الحديثة.</p>
-        <a href="https://wa.me/201018622861" class="btn-hire">
-            <i class="fa-brands fa-whatsapp"></i> اطلب موقعك من Othman Ventures
-        </a>
-        <p style="margin-top: 40px; font-size: 0.85rem; color: var(--text-muted);">© 2026 OTHMAN VENTURES - PREMIUM DIGITAL IDENTITY</p>
+        <h2 style="margin-bottom: 20px; font-weight: 900;">حوّل خبرتك إلى واجهة رقمية مشرفة</h2>
+        <a href="https://wa.me/201018622861" class="btn-hire">اطلب موقعك من Othman Ventures</a>
+        <p style="margin-top: 30px; font-size: 0.8rem; color: var(--text-muted);">© 2026 OTHMAN VENTURES - LUXURY DIGITAL IDENTITY</p>
     </section>
 
     <script>
         const themeBtn = document.getElementById('theme-btn');
         const body = document.body;
-
         const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
-            body.setAttribute('data-theme', 'dark');
-            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        }
-
+        if (currentTheme === 'dark') { body.setAttribute('data-theme', 'dark'); themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'; }
         themeBtn.addEventListener('click', () => {
             if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-                localStorage.setItem('theme', 'light');
+                body.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>'; localStorage.setItem('theme', 'light');
             } else {
-                body.setAttribute('data-theme', 'dark');
-                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-                localStorage.setItem('theme', 'dark');
+                body.setAttribute('data-theme', 'dark'); themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'; localStorage.setItem('theme', 'dark');
             }
         });
     </script>
