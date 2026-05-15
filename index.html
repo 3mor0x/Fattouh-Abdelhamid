@@ -6,182 +6,8 @@
     <title>البشمهندس فتوح عبدالحميد | الواجهة الرقمية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-color: #f5f5f7;
-            --surface-color: #ffffff;
-            --text-main: #1d1d1f;
-            --text-muted: #86868b;
-            --accent: #9c7c5d; 
-            --accent-glow: rgba(156, 124, 93, 0.4);
-            --border-color: #e5e5ea;
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            --radius-lg: 32px;
-            --radius-md: 20px;
-            --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #050505;
-            --surface-color: #121212;
-            --text-main: #f5f5f7;
-            --text-muted: #98989d;
-            --accent: #d2b48c; 
-            --accent-glow: rgba(210, 180, 140, 0.4);
-            --border-color: #262626;
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
-        body {
-            margin: 0; padding: 0;
-            background-color: var(--bg-color); color: var(--text-main);
-            font-family: 'Cairo', sans-serif;
-            transition: background-color 0.4s ease, color 0.4s ease;
-            overflow-x: hidden;
-        }
-
-        nav {
-            position: fixed; top: 15px; left: 50%; transform: translateX(-50%);
-            width: 92%; max-width: 1200px;
-            background: var(--surface-color); border: 1px solid var(--border-color);
-            border-radius: 50px; padding: 12px 25px;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: var(--shadow); z-index: 1000;
-            backdrop-filter: blur(20px); background: rgba(var(--surface-color), 0.85);
-        }
-        .nav-logo { font-weight: 900; font-size: clamp(0.9rem, 3vw, 1.2rem); color: var(--text-main); }
-        .nav-logo span { color: var(--accent); }
-        
-        .nav-controls { display: flex; align-items: center; gap: 10px; }
-        .theme-toggle {
-            background: var(--bg-color); border: 1px solid var(--border-color);
-            color: var(--text-main); width: 40px; height: 40px; border-radius: 50%;
-            cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center;
-        }
-        .theme-toggle:hover { color: var(--accent); border-color: var(--accent); transform: rotate(15deg); }
-
-        .btn-top {
-            background: #25d366; color: white; 
-            padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: 700;
-            transition: var(--transition); font-size: 0.85rem; display: flex; align-items: center; gap: 6px;
-        }
-        .btn-top:hover { background: #1da851; transform: scale(1.05); }
-
-        .hero {
-            padding: 140px 5% 50px; max-width: 1300px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: space-between; gap: 40px;
-        }
-        .hero-text { flex: 1.2; }
-        .hero-badge {
-            display: inline-block; padding: 6px 18px; border-radius: 50px;
-            background: var(--surface-color); border: 1px solid var(--border-color);
-            color: var(--text-muted); font-weight: 600; font-size: 0.85rem; margin-bottom: 15px;
-        }
-        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.2; margin: 0; }
-        .hero h1 span { color: var(--accent); }
-        .hero h2 { font-size: clamp(1.1rem, 3vw, 1.6rem); color: var(--text-muted); margin: 15px 0; font-weight: 600; }
-        
-        /* Contact Buttons in Hero */
-        .hero-contact {
-            margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;
-        }
-        .btn-social {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 12px 25px; border-radius: 50px; font-weight: 700; font-size: 1.05rem;
-            text-decoration: none; transition: var(--transition);
-            background: var(--surface-color); color: var(--text-main);
-            border: 1px solid var(--border-color); box-shadow: var(--shadow);
-        }
-        .btn-social:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .btn-social i { font-size: 1.3rem; }
-        .btn-call { background: var(--text-main); color: var(--bg-color); border: none; }
-        .btn-call:hover { background: var(--accent); color: white; }
-
-        .hero-img-wrap { flex: 0.8; display: flex; justify-content: center; }
-        .hero-img {
-            width: 100%; max-width: 400px; height: auto; aspect-ratio: 4/5; object-fit: cover;
-            border-radius: var(--radius-lg); box-shadow: var(--shadow);
-            border: 2px solid var(--border-color); transition: var(--transition);
-        }
-        .hero-img:hover { transform: translateY(-10px) rotate(2deg); border-color: var(--accent); }
-
-        /* Bento Grid */
-        .bento-section { padding: 40px 5%; max-width: 1300px; margin: 0 auto; }
-        .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .bento-card {
-            background: var(--surface-color); border-radius: var(--radius-lg);
-            padding: 35px; border: 1px solid var(--border-color);
-            box-shadow: var(--shadow); transition: var(--transition);
-            display: flex; flex-direction: column; justify-content: center;
-        }
-        .bento-card:hover { transform: scale(1.02); border-color: var(--accent); box-shadow: 0 10px 30px var(--accent-glow); }
-        .bento-card.wide { grid-column: span 2; flex-direction: row; align-items: center; gap: 30px; }
-        
-        .icon-wrap {
-            background: var(--bg-color); padding: 18px; border-radius: 18px; 
-            display: inline-flex; align-items: center; justify-content: center;
-            margin-bottom: 15px; transition: var(--transition);
-        }
-        .bento-card i { font-size: 2.2rem; color: var(--accent); }
-        .bento-card:hover .icon-wrap { background: var(--accent); }
-        .bento-card:hover i { color: #fff; }
-
-        .bento-card h3 { font-size: 1.5rem; margin: 0 0 12px; font-weight: 800; }
-        .bento-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0; }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;
-            padding: 20px 5% 80px; max-width: 1300px; margin: 0 auto;
-        }
-        .gallery-item-wrap {
-            border-radius: var(--radius-md); height: 350px; overflow: hidden;
-            border: 1px solid var(--border-color); display: flex; align-items: center; 
-            justify-content: center; background: rgba(0,0,0,0.02); transition: var(--transition);
-        }
-        .gal-item { max-width: 100%; max-height: 100%; object-fit: contain; padding: 10px; transition: var(--transition); }
-        .gallery-item-wrap:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 25px var(--accent-glow); }
-
-        /* Dedication */
-        .dedication {
-            background: var(--surface-color); padding: 80px 5%; border-top: 1px solid var(--border-color);
-        }
-        .dedication-content { max-width: 850px; margin: 0 auto; text-align: center; }
-        .quote { font-size: clamp(1.2rem, 3.5vw, 1.8rem); line-height: 1.8; font-weight: 600; margin-bottom: 40px; }
-        
-        .signature-wrap { display: flex; align-items: center; justify-content: center; gap: 20px; }
-        .eng-signature {
-            width: 140px; height: 140px; border-radius: 25px; 
-            object-fit: cover; border: 2px solid var(--border-color);
-            transition: var(--transition);
-        }
-        .eng-signature:hover { transform: scale(1.05) rotate(-3deg); border-color: var(--accent); }
-        .sig-text { text-align: right; }
-        .sig-text h4 { margin: 0; font-size: 1.3rem; font-weight: 800; }
-        .sig-text span { color: var(--accent); font-size: 0.95rem; font-weight: 600; }
-
-        /* Marketing Section */
-        .marketing { background: var(--bg-color); padding: 70px 20px; text-align: center; border-top: 1px solid var(--border-color); }
-        .btn-hire {
-            background: #25d366; color: white; padding: 14px 35px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px;
-            transition: var(--transition); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
-        }
-        .btn-hire:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); }
-
-        @media (max-width: 992px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 110px; }
-            .hero-img { max-width: 320px; }
-            .hero-contact { justify-content: center; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .bento-card.wide { grid-column: span 1; flex-direction: column; text-align: center; }
-            .signature-wrap { flex-direction: column; }
-            .sig-text { text-align: center; }
-        }
-    </style>
+    <!-- ربط ملف الـ CSS الخارجي -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -262,22 +88,12 @@
 
     <section class="marketing">
         <h2 style="margin-bottom: 20px; font-weight: 900;">حوّل خبرتك إلى واجهة رقمية مشرفة</h2>
-        <a href="https://wa.me/201018622861" class="btn-hire">اطلب موقعك من Othman Ventures</a>
+        <!-- تم تعديل الرقم هنا إلى الرقم الجديد بنجاح -->
+        <a href="https://wa.me/201009694831" class="btn-hire">اطلب موقعك من Othman Ventures</a>
         <p style="margin-top: 30px; font-size: 0.8rem; color: var(--text-muted);">© 2026 OTHMAN VENTURES - LUXURY DIGITAL IDENTITY</p>
     </section>
 
-    <script>
-        const themeBtn = document.getElementById('theme-btn');
-        const body = document.body;
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') { body.setAttribute('data-theme', 'dark'); themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'; }
-        themeBtn.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme'); themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>'; localStorage.setItem('theme', 'light');
-            } else {
-                body.setAttribute('data-theme', 'dark'); themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'; localStorage.setItem('theme', 'dark');
-            }
-        });
-    </script>
+    <!-- ربط ملف الـ JavaScript الخارجي -->
+    <script src="script.js"></script>
 </body>
 </html>
